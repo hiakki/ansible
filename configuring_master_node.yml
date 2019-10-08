@@ -11,19 +11,12 @@
       when: hostvars[item].ansible_host is defined
       with_items: "{{ groups.all }}"
 
-    - name: Emptying hostname file of Group - Masters
-      copy:
-        content: ""
-        dest: /etc/hostname
-
-    - name: Change HOSTNAME of Group - Masters
-      lineinfile:
-        dest: /etc/hostname
-        regexp: '.*{{ item }}$'
-        line: "{{item}}"
-        state: present
-      when: hostvars[item].ansible_host is defined
-      with_items: "{{ groups.masters }}"
+    - name: Changing Hostname to master
+      replace:
+        path: /etc/hostname
+        regexp: 'ip-.*$'
+        replace: "master"
+        backup: yes
       register: reboot_req
 
     - name: Reboot immediately if there was a change in reboot_req.
