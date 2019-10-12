@@ -1,0 +1,15 @@
+- hosts: masters
+  become: yes
+  become_user: kube
+  tasks:
+
+    - name: download blue green YAMLs from hiakki/kubernetes
+      git:
+        repo: https://github.com/hiakki/kubernetes.git
+        dest: /home/kube/kubernetes
+      ignore_errors: yes
+
+
+    - name: download blue green YAMLs from hiakki/kubernetes
+      shell: cd /home/kube/kubernetes \
+             && git pull https://github.com/hiakki/kubernetes.git

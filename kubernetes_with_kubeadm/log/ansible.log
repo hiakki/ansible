@@ -1700,3 +1700,130 @@ version 2.11. Deprecation warnings can be disabled by setting deprecation_warnin
 2019-10-12 12:38:17,867 p=14429 u=root |  ...ignoring
 2019-10-12 12:38:17,871 p=14429 u=root |  PLAY RECAP ******************************************************************************
 2019-10-12 12:38:17,871 p=14429 u=root |  master                     : ok=4    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
+2019-10-12 12:46:38,541 p=14895 u=root |  PLAY [all] ******************************************************************************
+2019-10-12 12:46:38,550 p=14895 u=root |  TASK [install remote apt deps] **********************************************************
+2019-10-12 12:46:38,586 p=14895 u=root |  [DEPRECATION WARNING]: Invoking "apt" only once while using a loop via squash_actions is
+ deprecated. Instead of using a loop to supply multiple items and specifying `name: "{{ 
+item }}"`, please use `name: ['apt-transport-https', 'ca-certificates', 'gnupg2', 
+'software-properties-common']` and remove the loop. This feature will be removed in 
+version 2.11. Deprecation warnings can be disabled by setting deprecation_warnings=False
+ in ansible.cfg.
+2019-10-12 12:46:38,606 p=14895 u=root |  [DEPRECATION WARNING]: Invoking "apt" only once while using a loop via squash_actions is
+ deprecated. Instead of using a loop to supply multiple items and specifying `name: "{{ 
+item }}"`, please use `name: ['apt-transport-https', 'ca-certificates', 'gnupg2', 
+'software-properties-common']` and remove the loop. This feature will be removed in 
+version 2.11. Deprecation warnings can be disabled by setting deprecation_warnings=False
+ in ansible.cfg.
+2019-10-12 12:46:38,640 p=14895 u=root |  [DEPRECATION WARNING]: Invoking "apt" only once while using a loop via squash_actions is
+ deprecated. Instead of using a loop to supply multiple items and specifying `name: "{{ 
+item }}"`, please use `name: ['apt-transport-https', 'ca-certificates', 'gnupg2', 
+'software-properties-common']` and remove the loop. This feature will be removed in 
+version 2.11. Deprecation warnings can be disabled by setting deprecation_warnings=False
+ in ansible.cfg.
+2019-10-12 12:46:39,975 p=14895 u=root |  ok: [master] => (item=[u'apt-transport-https', u'ca-certificates', u'gnupg2', u'software-properties-common'])
+2019-10-12 12:46:39,984 p=14895 u=root |   [WARNING]: Could not find aptitude. Using apt-get instead
+
+2019-10-12 12:46:39,986 p=14895 u=root |  ok: [worker1] => (item=[u'apt-transport-https', u'ca-certificates', u'gnupg2', u'software-properties-common'])
+2019-10-12 12:46:40,059 p=14895 u=root |  ok: [worker2] => (item=[u'apt-transport-https', u'ca-certificates', u'gnupg2', u'software-properties-common'])
+2019-10-12 12:46:40,069 p=14895 u=root |  TASK [add Docker apt-key] ***************************************************************
+2019-10-12 12:46:41,623 p=14895 u=root |  ok: [master]
+2019-10-12 12:46:41,626 p=14895 u=root |  ok: [worker1]
+2019-10-12 12:46:41,650 p=14895 u=root |  ok: [worker2]
+2019-10-12 12:46:41,656 p=14895 u=root |  TASK [add Docker's APT repository] ******************************************************
+2019-10-12 12:46:42,590 p=14895 u=root |  ok: [master]
+2019-10-12 12:46:42,621 p=14895 u=root |  ok: [worker2]
+2019-10-12 12:46:42,624 p=14895 u=root |  ok: [worker1]
+2019-10-12 12:46:42,631 p=14895 u=root |  TASK [install Docker] *******************************************************************
+2019-10-12 12:46:47,319 p=14895 u=root |  ok: [worker1]
+2019-10-12 12:46:47,419 p=14895 u=root |  ok: [master]
+2019-10-12 12:46:47,559 p=14895 u=root |  ok: [worker2]
+2019-10-12 12:46:47,566 p=14895 u=root |  TASK [add Kubernetes apt-key] ***********************************************************
+2019-10-12 12:46:48,863 p=14895 u=root |  ok: [master]
+2019-10-12 12:46:49,043 p=14895 u=root |  ok: [worker1]
+2019-10-12 12:46:49,187 p=14895 u=root |  ok: [worker2]
+2019-10-12 12:46:49,194 p=14895 u=root |  TASK [add Kubernetes' APT repository] ***************************************************
+2019-10-12 12:46:49,939 p=14895 u=root |  ok: [worker1]
+2019-10-12 12:46:49,979 p=14895 u=root |  ok: [worker2]
+2019-10-12 12:46:49,982 p=14895 u=root |  ok: [master]
+2019-10-12 12:46:49,989 p=14895 u=root |  TASK [install kubelet] ******************************************************************
+2019-10-12 12:46:52,257 p=14895 u=root |  ok: [worker1]
+2019-10-12 12:46:52,339 p=14895 u=root |  ok: [master]
+2019-10-12 12:46:52,394 p=14895 u=root |  ok: [worker2]
+2019-10-12 12:46:52,401 p=14895 u=root |  TASK [install kubeadm] ******************************************************************
+2019-10-12 12:46:53,570 p=14895 u=root |  ok: [worker1]
+2019-10-12 12:46:53,636 p=14895 u=root |  ok: [worker2]
+2019-10-12 12:46:53,707 p=14895 u=root |  ok: [master]
+2019-10-12 12:46:53,717 p=14895 u=root |  PLAY [master] ***************************************************************************
+2019-10-12 12:46:53,722 p=14895 u=root |  TASK [install kubectl] ******************************************************************
+2019-10-12 12:46:54,747 p=14895 u=root |  ok: [master]
+2019-10-12 12:46:54,749 p=14895 u=root |  PLAY RECAP ******************************************************************************
+2019-10-12 12:46:54,750 p=14895 u=root |  master                     : ok=9    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-10-12 12:46:54,752 p=14895 u=root |  worker1                    : ok=8    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-10-12 12:46:54,752 p=14895 u=root |  worker2                    : ok=8    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-10-12 12:46:55,386 p=15304 u=root |  PLAY [all] ******************************************************************************
+2019-10-12 12:46:55,394 p=15304 u=root |  TASK [create the 'kube' user] ***********************************************************
+2019-10-12 12:46:56,132 p=15304 u=root |  ok: [worker1]
+2019-10-12 12:46:56,134 p=15304 u=root |  ok: [master]
+2019-10-12 12:46:56,140 p=15304 u=root |  ok: [worker2]
+2019-10-12 12:46:56,145 p=15304 u=root |  TASK [allow 'kube' to have passwordless sudo] *******************************************
+2019-10-12 12:46:56,780 p=15304 u=root |  ok: [worker2]
+2019-10-12 12:46:56,783 p=15304 u=root |  ok: [worker1]
+2019-10-12 12:46:56,787 p=15304 u=root |  ok: [master]
+2019-10-12 12:46:56,795 p=15304 u=root |  TASK [set up authorized keys for the kube user] *****************************************
+2019-10-12 12:46:57,628 p=15304 u=root |  ok: [master] => (item=ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDJOZXx5Y7H80rXUOBQG1xIk617tOciTHkxLnUhtbh01xT+QnbbyK30RQ5Xcm/3E9EnKi+384nTMPSy/wF8eZs58j4BCsLST/+QklAQsPJDLR7hdFxxMeV8L2FjWxZ0G2Ovt6WDoUap9ikLtL/Jfa1l2/rf5EuCJr7ZswNLssqP+CjnFW/H+g1GtvmW1CU/30m1lxeEv650FZiE9C/zrLtO2ueDHeowq/72dF2u6SOMBylEcN4dotn0BkDWI0gpqopRv0ID3Icczz82llKbCOEMAK/b+GEUIK5jOTEoFnaSGn5aPmw3d79gk8+y/9zsxvBhZ3BAqLgSlZzJFxHgAGFH root@ansible)
+2019-10-12 12:46:57,654 p=15304 u=root |  ok: [worker2] => (item=ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDJOZXx5Y7H80rXUOBQG1xIk617tOciTHkxLnUhtbh01xT+QnbbyK30RQ5Xcm/3E9EnKi+384nTMPSy/wF8eZs58j4BCsLST/+QklAQsPJDLR7hdFxxMeV8L2FjWxZ0G2Ovt6WDoUap9ikLtL/Jfa1l2/rf5EuCJr7ZswNLssqP+CjnFW/H+g1GtvmW1CU/30m1lxeEv650FZiE9C/zrLtO2ueDHeowq/72dF2u6SOMBylEcN4dotn0BkDWI0gpqopRv0ID3Icczz82llKbCOEMAK/b+GEUIK5jOTEoFnaSGn5aPmw3d79gk8+y/9zsxvBhZ3BAqLgSlZzJFxHgAGFH root@ansible)
+2019-10-12 12:46:57,656 p=15304 u=root |  ok: [worker1] => (item=ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDJOZXx5Y7H80rXUOBQG1xIk617tOciTHkxLnUhtbh01xT+QnbbyK30RQ5Xcm/3E9EnKi+384nTMPSy/wF8eZs58j4BCsLST/+QklAQsPJDLR7hdFxxMeV8L2FjWxZ0G2Ovt6WDoUap9ikLtL/Jfa1l2/rf5EuCJr7ZswNLssqP+CjnFW/H+g1GtvmW1CU/30m1lxeEv650FZiE9C/zrLtO2ueDHeowq/72dF2u6SOMBylEcN4dotn0BkDWI0gpqopRv0ID3Icczz82llKbCOEMAK/b+GEUIK5jOTEoFnaSGn5aPmw3d79gk8+y/9zsxvBhZ3BAqLgSlZzJFxHgAGFH root@ansible)
+2019-10-12 12:46:57,666 p=15304 u=root |  TASK [Create a Directory /home/kube/logs] ***********************************************
+2019-10-12 12:46:58,322 p=15304 u=root |  ok: [worker1]
+2019-10-12 12:46:58,324 p=15304 u=root |  ok: [worker2]
+2019-10-12 12:46:58,329 p=15304 u=root |  ok: [master]
+2019-10-12 12:46:58,333 p=15304 u=root |  PLAY RECAP ******************************************************************************
+2019-10-12 12:46:58,334 p=15304 u=root |  master                     : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-10-12 12:46:58,334 p=15304 u=root |  worker1                    : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-10-12 12:46:58,334 p=15304 u=root |  worker2                    : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-10-12 12:46:58,978 p=15504 u=root |  PLAY [masters] **************************************************************************
+2019-10-12 12:46:58,986 p=15504 u=root |  TASK [initialize the cluster] ***********************************************************
+2019-10-12 12:47:00,743 p=15504 u=root |  fatal: [master]: FAILED! => {"changed": true, "cmd": "kubeadm init >> configure-master-node1.txt", "delta": "0:00:01.309388", "end": "2019-10-12 12:47:00.648383", "msg": "non-zero return code", "rc": 1, "start": "2019-10-12 12:46:59.338995", "stderr": "error execution phase preflight: [preflight] Some fatal errors occurred:\n\t[ERROR IsPrivilegedUser]: user is not running as root\n[preflight] If you know what you are doing, you can make a check non-fatal with `--ignore-preflight-errors=...`\nTo see the stack trace of this error execute with --v=5 or higher", "stderr_lines": ["error execution phase preflight: [preflight] Some fatal errors occurred:", "\t[ERROR IsPrivilegedUser]: user is not running as root", "[preflight] If you know what you are doing, you can make a check non-fatal with `--ignore-preflight-errors=...`", "To see the stack trace of this error execute with --v=5 or higher"], "stdout": "", "stdout_lines": []}
+2019-10-12 12:47:00,743 p=15504 u=root |  ...ignoring
+2019-10-12 12:47:00,751 p=15504 u=root |  TASK [create .kube directory] ***********************************************************
+2019-10-12 12:47:01,231 p=15504 u=root |  ok: [master]
+2019-10-12 12:47:01,239 p=15504 u=root |  TASK [copy admin.conf to user's kube config] ********************************************
+2019-10-12 12:47:01,708 p=15504 u=root |  ok: [master]
+2019-10-12 12:47:01,716 p=15504 u=root |  TASK [install Pod network] **************************************************************
+2019-10-12 12:47:02,019 p=15504 u=root |  ok: [master]
+2019-10-12 12:47:02,023 p=15504 u=root |  PLAY RECAP ******************************************************************************
+2019-10-12 12:47:02,024 p=15504 u=root |  master                     : ok=4    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
+2019-10-12 12:47:02,666 p=15574 u=root |  PLAY [master] ***************************************************************************
+2019-10-12 12:47:02,674 p=15574 u=root |  TASK [download metrics-server from kubernetes-incubator] ********************************
+2019-10-12 12:47:03,210 p=15574 u=root |  fatal: [master]: FAILED! => {"before": "431f073591ba4a0dd340d4fa2388ab3d3752b53b", "changed": false, "msg": "Local modifications exist in repository (force=no)."}
+2019-10-12 12:47:03,211 p=15574 u=root |  ...ignoring
+2019-10-12 12:47:03,217 p=15574 u=root |  TASK [download metrics-server-deployment.yaml from my repo] *****************************
+2019-10-12 12:47:04,344 p=15574 u=root |  ok: [master]
+2019-10-12 12:47:04,352 p=15574 u=root |  TASK [Deploying Metrics-Server for HPA] *************************************************
+2019-10-12 12:47:04,800 p=15574 u=root |  ok: [master]
+2019-10-12 12:47:04,804 p=15574 u=root |  PLAY RECAP ******************************************************************************
+2019-10-12 12:47:04,804 p=15574 u=root |  master                     : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
+2019-10-12 12:47:05,446 p=15630 u=root |  PLAY [masters] **************************************************************************
+2019-10-12 12:47:05,455 p=15630 u=root |  TASK [get join command] *****************************************************************
+2019-10-12 12:47:05,995 p=15630 u=root |  changed: [master]
+2019-10-12 12:47:06,004 p=15630 u=root |  TASK [set join command] *****************************************************************
+2019-10-12 12:47:06,025 p=15630 u=root |  ok: [master]
+2019-10-12 12:47:06,035 p=15630 u=root |  PLAY [workers] **************************************************************************
+2019-10-12 12:47:06,042 p=15630 u=root |  TASK [join cluster] *********************************************************************
+2019-10-12 12:47:06,476 p=15630 u=root |  fatal: [worker1]: FAILED! => {"changed": false, "module_stderr": "Shared connection to 192.168.1.81 closed.\r\n", "module_stdout": "Traceback (most recent call last):\r\n  File \"/root/.ansible/tmp/ansible-tmp-1570884426.08-71863258765497/AnsiballZ_command.py\", line 114, in <module>\r\n    _ansiballz_main()\r\n  File \"/root/.ansible/tmp/ansible-tmp-1570884426.08-71863258765497/AnsiballZ_command.py\", line 106, in _ansiballz_main\r\n    invoke_module(zipped_mod, temp_path, ANSIBALLZ_PARAMS)\r\n  File \"/root/.ansible/tmp/ansible-tmp-1570884426.08-71863258765497/AnsiballZ_command.py\", line 49, in invoke_module\r\n    imp.load_module('__main__', mod, module, MOD_DESC)\r\n  File \"/usr/lib/python3.6/imp.py\", line 235, in load_module\r\n    return load_source(name, filename, file)\r\n  File \"/usr/lib/python3.6/imp.py\", line 170, in load_source\r\n    module = _exec(spec, sys.modules[name])\r\n  File \"<frozen importlib._bootstrap>\", line 618, in _exec\r\n  File \"<frozen importlib._bootstrap_external>\", line 678, in exec_module\r\n  File \"<frozen importlib._bootstrap>\", line 219, in _call_with_frames_removed\r\n  File \"/tmp/ansible_command_payload_7nrpkybs/__main__.py\", line 327, in <module>\r\n  File \"/tmp/ansible_command_payload_7nrpkybs/__main__.py\", line 263, in main\r\nFileNotFoundError: [Errno 2] No such file or directory: '/root/logs'\r\n", "msg": "MODULE FAILURE\nSee stdout/stderr for the exact error", "rc": 1}
+2019-10-12 12:47:06,476 p=15630 u=root |  ...ignoring
+2019-10-12 12:47:06,497 p=15630 u=root |  fatal: [worker2]: FAILED! => {"changed": false, "module_stderr": "Shared connection to 192.168.1.161 closed.\r\n", "module_stdout": "Traceback (most recent call last):\r\n  File \"/root/.ansible/tmp/ansible-tmp-1570884426.1-189406248054099/AnsiballZ_command.py\", line 114, in <module>\r\n    _ansiballz_main()\r\n  File \"/root/.ansible/tmp/ansible-tmp-1570884426.1-189406248054099/AnsiballZ_command.py\", line 106, in _ansiballz_main\r\n    invoke_module(zipped_mod, temp_path, ANSIBALLZ_PARAMS)\r\n  File \"/root/.ansible/tmp/ansible-tmp-1570884426.1-189406248054099/AnsiballZ_command.py\", line 49, in invoke_module\r\n    imp.load_module('__main__', mod, module, MOD_DESC)\r\n  File \"/usr/lib/python3.6/imp.py\", line 235, in load_module\r\n    return load_source(name, filename, file)\r\n  File \"/usr/lib/python3.6/imp.py\", line 170, in load_source\r\n    module = _exec(spec, sys.modules[name])\r\n  File \"<frozen importlib._bootstrap>\", line 618, in _exec\r\n  File \"<frozen importlib._bootstrap_external>\", line 678, in exec_module\r\n  File \"<frozen importlib._bootstrap>\", line 219, in _call_with_frames_removed\r\n  File \"/tmp/ansible_command_payload_9wfjwsm3/__main__.py\", line 327, in <module>\r\n  File \"/tmp/ansible_command_payload_9wfjwsm3/__main__.py\", line 263, in main\r\nFileNotFoundError: [Errno 2] No such file or directory: '/root/logs'\r\n", "msg": "MODULE FAILURE\nSee stdout/stderr for the exact error", "rc": 1}
+2019-10-12 12:47:06,498 p=15630 u=root |  ...ignoring
+2019-10-12 12:47:06,500 p=15630 u=root |  PLAY RECAP ******************************************************************************
+2019-10-12 12:47:06,500 p=15630 u=root |  master                     : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2019-10-12 12:47:06,500 p=15630 u=root |  worker1                    : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
+2019-10-12 12:47:06,502 p=15630 u=root |  worker2                    : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=1   
+2019-10-12 12:47:07,146 p=15689 u=root |  PLAY [masters] **************************************************************************
+2019-10-12 12:47:07,154 p=15689 u=root |  TASK [Deleting Deployment, Service, HPA of my_app] **************************************
+2019-10-12 12:47:07,794 p=15689 u=root |  changed: [master] => (item=blue)
+2019-10-12 12:47:08,198 p=15689 u=root |  changed: [master] => (item=green)
+2019-10-12 12:47:08,206 p=15689 u=root |  TASK [deploying HPA my_app] *************************************************************
+2019-10-12 12:47:08,723 p=15689 u=root |  changed: [master] => (item=/home/kube/kubernetes/blue/)
+2019-10-12 12:47:09,214 p=15689 u=root |  changed: [master] => (item=/home/kube/kubernetes/green/)
+2019-10-12 12:47:09,219 p=15689 u=root |  PLAY RECAP ******************************************************************************
+2019-10-12 12:47:09,219 p=15689 u=root |  master                     : ok=2    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   

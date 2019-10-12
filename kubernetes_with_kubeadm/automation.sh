@@ -8,4 +8,5 @@ ansible-playbook roles/create-user/tasks/main.yml
 ansible-playbook roles/configure-master-node/tasks/main.yml
 ansible-playbook roles/deploy-metrics-server-for-HPA/tasks/main.yml
 ansible-playbook roles/join-master/tasks/main.yml
-ansible-playbook roles/deploy-app/tasks/main.yml
+ansible-playbook roles/update-YAMLs/tasks/main.yml
+ansible-playbook roles/re-deploy-app/tasks/main.yml
