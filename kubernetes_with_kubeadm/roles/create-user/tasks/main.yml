@@ -1,13 +1,13 @@
 - hosts: all
-  become: yes
   tasks:
+
     - name: create the 'kube' user
       user: 
-	name: kube 
-	append: yes 
-	state: present 
-	createhome: yes 
-	shell: /bin/bash
+        name: kube 
+        append: yes 
+        state: present 
+        createhome: yes 
+        shell: /bin/bash
 
     - name: allow 'kube' to have passwordless sudo
       lineinfile:
@@ -19,3 +19,9 @@
       authorized_key: user=kube key="{{item}}"
       with_file:
         - ~/.ssh/id_rsa.pub
+
+    - name: Create a Directory /home/kube/logs
+      file:
+        path: /home/kube/logs
+        state: directory
+        mode: 0777

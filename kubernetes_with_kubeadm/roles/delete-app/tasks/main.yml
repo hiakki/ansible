@@ -1,7 +1,5 @@
 - hosts: master
-  become: yes
   become_user: kube
-  gather_facts: false
   tasks:
 
     - name: deploying HPA my_app
@@ -9,3 +7,5 @@
       with_items: 
         - blue
         - green
+      ignore_errors: yes
+

@@ -1,0 +1,21 @@
+- hosts: master
+  become: yes
+  become_user: kube
+  tasks:
+
+    - name: download metrics-server from kubernetes-incubator
+      git:
+        repo: https://github.com/kubernetes-incubator/metrics-server.git
+        dest: /home/kube/metrics-server
+      ignore_errors: yes
+
+    - name: download metrics-server-deployment.yaml from my repo
+      get_url:
+        url: https://raw.githubusercontent.com/hiakki/kubernetes/master/metrics-server/metrics-server-deployment.yaml
+        dest: /home/kube/metrics-server/deploy/1.8+/
+
+    - name: Deploying Metrics-Server for HPA
+      shell: kubectl apply -f /home/kube/metrics-server/deploy/1.8+/ >> deploy-metrics-server-for-HPA1.txt
+      args:
+        chdir: $HOME/logs
+        creates: deploy-metrics-server-for-HPA1.txt

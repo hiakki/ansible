@@ -1,5 +1,4 @@
 - hosts: masters
-  become: yes
   become_user: kube
   tasks:
 
@@ -15,3 +14,5 @@
       with_items:
         - /home/kube/kubernetes/blue/
         - /home/kube/kubernetes/green/
+      ignore_errors: yes
+

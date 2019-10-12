@@ -1,6 +1,4 @@
-- hosts: master
-  become: yes
-  gather_facts: false
+- hosts: masters
   tasks:
 
     - name: get join command
@@ -17,7 +15,8 @@
   tasks:
 
     - name: join cluster
-      shell: "{{ hostvars['master'].join_command }} >> node_joined.txt"
+      shell: "{{ hostvars['master'].join_command }} >> join-master1.txt"
       args:
-        chdir: $HOME
-        creates: node_joined.txt
+        chdir: $HOME/logs
+        creates: join-master1.txt
+      ignore_errors: yes
