@@ -1,9 +1,19 @@
+[local]
+127.0.0.1 
+ansible_ssh_pass=root
+ansible_python_interpreter=/usr/bin/python
+
 [masters]
- master ansible_host=192.168.1.80
+master ansible_host=192.168.1.40
 
 [workers]
- worker1 ansible_host=192.168.1.81
- worker2 ansible_host=192.168.1.161
+worker1 ansible_host=192.168.1.21
+worker2 ansible_host=192.168.1.42
+
+[nodes]
+master ansible_host=192.168.1.40
+worker1 ansible_host=192.168.1.21
+worker2 ansible_host=192.168.1.42
 
 [all:vars]
 ansible_ssh_pass=root

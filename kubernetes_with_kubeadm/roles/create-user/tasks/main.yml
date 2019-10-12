@@ -1,4 +1,4 @@
-- hosts: all
+- hosts: nodes
   tasks:
 
     - name: create the 'kube' user

@@ -1,0 +1,23 @@
+---
+#  vars:
+#      region: us-east-1
+#      instance_type: t2.nano
+#      ami: ami-f4cc1de2  # Ubuntu 16.04 LTS
+#      keypair: einsteinish # pem file name
+  
+    - name: Create an ec2 instance
+      ec2:
+         key_name: "{{ keypair }}"
+         group: "{{ sgn }}"  # security group name
+         instance_type: "{{ type }}"
+         image: "{{ ami }}"
+         wait: true
+         region: "{{ region }}"
+         count: "{{ count }}"  # default
+         count_tag:
+            Name: "{{ name }}"
+#         instance_tags:
+#            Name: Demo
+         vpc_subnet_id: "{{ subnet }}"
+         assign_public_ip: yes
+      register: ec2

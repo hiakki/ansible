@@ -1,0 +1,18 @@
+---
+
+    - name: Create an ec2 instance
+      ec2:
+         key_name: "{{ keypair }}"
+         group: "{{ sgn }}"  # security group name
+         instance_type: "{{ type }}"
+         image: "{{ ami }}"
+         wait: true
+         region: "{{ region }}"
+         count: "{{ count }}"  # default
+#         count_tag:
+#            Name: "{{ name }}"
+         instance_tags:
+            Name: "{{ name }}"
+         vpc_subnet_id: "{{ subnet }}"
+         assign_public_ip: yes
+      register: ec2

@@ -1,0 +1,10 @@
+---
+
+name: worker
+region: ap-south-1
+ami: ami-0b91b718df755dd59
+type: t2.micro
+count: 2
+subnet: subnet-0bad40a5c43a62dcf
+sgn: 2_my_security_group
+keypair: my

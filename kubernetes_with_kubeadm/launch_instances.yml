@@ -1,0 +1,5 @@
+- hosts: localhost
+  roles:
+     - { role: launch-ec2-master }
+     - { role: launch-ec2-worker }
+
