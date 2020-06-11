@@ -1,0 +1,32 @@
+- hosts: "security_group_{{env}}_instances"
+  vars:
+    HOST_COUNT: "{{ ansible_play_hosts | length }}"
+  vars_files:
+    - "secrets/{{env}}.yml"
+
+tasks:
+
+    - name:
+      shell: echo $HOSTNAME
+      register: hostname
+
+    - debug:
+        msg: "{{ hostname.stdout_lines[0] }}"
+
+    - name: Set a var
+      set_fact:
+        a: "{{ 'abcd' if HOST_COUNT == '2' else 'xyz' }}"
+
+    - debug:
+        msg: "{{ a }}"
+
+    - name: Set a var
+      set_fact:
+        b: "{{ ansible_play_hosts_all[1] if HOST_COUNT == '2' else ansible_play_hosts_all[0] }}"
+
+    - debug:
+        msg: "{{ b }}"
+
+    - debug:
+        msg: "This is server {{b}}"
+      when: inventory_hostname == b
